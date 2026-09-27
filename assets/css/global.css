@@ -1522,7 +1522,8 @@ html[data-theme="dark"] .tool-icon:not(.text-badge) img {
 
 
 /* Contact page availability cue and narrow-screen workflow heading fit. */
-.contact-status::before {
+.contact-status::before,
+.online-indicator::before {
   background: #8bd7a7;
   box-shadow: 0 0 0 4px rgba(139, 215, 167, 0.14), 0 0 12px rgba(139, 215, 167, 0.62);
   animation: contact-status-pulse 2.2s ease-out infinite;
@@ -1535,6 +1536,20 @@ html[data-theme="dark"] .tool-icon:not(.text-badge) img {
 }
 
 @media (max-width: 760px) {
+  .grid-matrix,
+  .grid-matrix .matrix-card,
+  .grid-matrix .matrix-card h3 {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .grid-matrix .matrix-card h3 {
+    overflow-wrap: anywhere;
+    word-break: normal;
+    font-size: clamp(1.1rem, 5.2vw, 1.3rem);
+    line-height: 1.1;
+  }
+
   .workflow-track,
   .workflow-step,
   .workflow-step h3 {
@@ -1550,7 +1565,8 @@ html[data-theme="dark"] .tool-icon:not(.text-badge) img {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .contact-status::before {
+  .contact-status::before,
+  .online-indicator::before {
     animation: none;
   }
 }
