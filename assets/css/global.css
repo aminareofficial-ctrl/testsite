@@ -1632,16 +1632,21 @@ html[data-theme="dark"] .home-hero {
   }
 }
 
-/* Keep the mobile header in the scrolling flow and let the footer end the page. */
+/* Keep the mobile header pinned and make the footer compact and non-sticky. */
 @media (max-width: 760px) {
   body {
-    padding-top: 0;
+    padding-top: var(--header-height);
     padding-bottom: 0;
   }
 
   .site-header {
-    position: sticky;
+    position: fixed !important;
     top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
   }
 
   footer {
@@ -1649,5 +1654,39 @@ html[data-theme="dark"] .home-hero {
     inset: auto;
     z-index: auto;
     margin-top: 24px;
+    padding: 8px 0;
+  }
+
+  .footer-inner {
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 12px;
+    padding: 8px 14px;
+  }
+
+  .footer-inner > .brand {
+    display: none;
+  }
+
+  .footer-links {
+    display: flex;
+    flex: 0 0 auto;
+    width: auto;
+    gap: 0;
+  }
+
+  .footer-links a:not([href="/terms"]) {
+    display: none;
+  }
+
+  .footer-meta {
+    margin: 0;
+    white-space: nowrap;
+    font-size: 0.64rem;
+  }
+
+  footer > p {
+    margin: 0;
+    text-align: center;
   }
 }
