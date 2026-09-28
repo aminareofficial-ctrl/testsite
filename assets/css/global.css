@@ -1589,6 +1589,19 @@ html[data-theme="dark"] .home-hero {
 
 /* Keep service cards readable in narrow browser and phone layouts. */
 @media (max-width: 900px) {
+  /* This later rule overrides the earlier tablet/mobile .feature-list rule. */
+  .home-feature-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-feature-list .feature-card,
+  .home-feature-list .feature-card h3,
+  .home-feature-list .feature-card p {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
   .grid-matrix {
     grid-template-columns: minmax(0, 1fr);
   }
