@@ -1631,3 +1631,23 @@ html[data-theme="dark"] .home-hero {
     overflow-wrap: anywhere;
   }
 }
+
+/* Keep the mobile header in the scrolling flow and let the footer end the page. */
+@media (max-width: 760px) {
+  body {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+  }
+
+  footer {
+    position: static;
+    inset: auto;
+    z-index: auto;
+    margin-top: 24px;
+  }
+}
