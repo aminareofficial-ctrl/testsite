@@ -1570,3 +1570,51 @@ html[data-theme="dark"] .tool-icon:not(.text-badge) img {
     animation: none;
   }
 }
+
+/* Give the home hero the same soft white and lilac glow as the contact page. */
+.home-hero {
+  background:
+    radial-gradient(ellipse at 12% 8%, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0) 46%),
+    radial-gradient(ellipse at 88% 64%, rgba(216, 180, 225, 0.25) 0%, rgba(216, 180, 225, 0) 45%),
+    linear-gradient(135deg, #fff 0%, var(--bg-primary) 54%, var(--bg-secondary) 100%);
+  transition: background 0.25s ease;
+}
+
+html[data-theme="dark"] .home-hero {
+  background:
+    radial-gradient(ellipse at 12% 8%, rgba(207, 158, 226, 0.13) 0%, rgba(207, 158, 226, 0) 46%),
+    radial-gradient(ellipse at 88% 64%, rgba(123, 77, 130, 0.2) 0%, rgba(123, 77, 130, 0) 45%),
+    var(--bg-primary);
+}
+
+/* Keep service cards readable in narrow browser and phone layouts. */
+@media (max-width: 900px) {
+  .grid-matrix {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .grid-matrix .matrix-card,
+  .grid-matrix .matrix-card h3,
+  .grid-matrix .matrix-card p {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .grid-matrix .matrix-card h3,
+  .grid-matrix .matrix-card p {
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    gap: 12px 16px;
+  }
+
+  .footer-links a {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}
